@@ -16,9 +16,9 @@ export class ProductsComponent implements OnInit {
   categoryList: ICategory[];
   isPurshased: boolean;
   constructor() {
-    this.Discount = DiscountOffers.tenprecent;
-    this.storeName = "Arket";
-    this.storeLogo="../../assets/Photos/Trollie -1.jpg";
+    this.Discount = DiscountOffers.fifteenprecent;
+    this.storeName = 'Arket';
+    this.storeLogo = '../../assets/Photos/Trollie -1.jpg';
     this.productList = [
       {
         ID: 1,
@@ -56,10 +56,18 @@ export class ProductsComponent implements OnInit {
         Img: '../../assets/Photos/Trollie - 01.jpg',
       },
     ];
-    this.clientName = "Gamal";
-    this.isPurshased=true;
-    this.categoryList=[{ID:1,Name:"Category1"},{ID:2,Name:"Category2"}]
+    this.clientName = 'Gamal';
+    this.isPurshased = false;
+    this.categoryList = [
+      { ID: 1, Name: 'Category1' },
+      { ID: 2, Name: 'Category2' },
+    ];
   }
 
   ngOnInit(): void {}
+  onclick() {
+    if (this.isPurshased) {
+      this.isPurshased = false;
+    } else this.isPurshased = true;
+  }
 }

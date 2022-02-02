@@ -1,7 +1,66 @@
-<div class="card mb-3" style="width: 18rem">
-  <img [src]="storeLogo" class="card-img-top rounded float-start" alt="...">
-  <div class="card-body">
-    <h1 class="card-title">{{storeName}}</h1>
-    <h3 class="card-text">We We offer an explicit discount of {{Discount}}</h3>
+<div class="container">
+  <div class="row">
+    <div class=" col-5 mb-3 mt-3">
+      <input type="text" class="form-control" placeholder="Username" [(ngModel)]="clientName">
+      <span>
+        <h2>Welcome {{clientName}}</h2>
+      </span>
+    </div>
   </div>
+  <div class="row">
+    <div class="btn-group col-2">
+      <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        Category
+      </button>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" *ngFor="let item of categoryList" href="#">{{item.Name}}</a></li>
+      </ul>
+    </div>
+  </div>
+  <!-- Card -->
+  <div class="card mb-3 col-12" style="width: 18rem">
+    <img [src]="storeLogo" class="card-img-top rounded float-start" alt="...">
+    <div class="card-body">
+      <h1 class="card-title">{{storeName|uppercase}}</h1>
+      <div *ngIf="Discount!= 'No Discount'; then go"></div>
+      <ng-template #go>
+        <h3 class="card-text">We We offer an explicit discount of {{Discount|percent}}</h3>
+      </ng-template>
+    </div>
+  </div>
+
+  <!-- End Card -->
+  <div>
+    <button type="button" class="btn btn-success col-2 mb-3" (click)="onclick()">Buy</button>
+    <div *ngIf="isPurshased; then msg;else table"></div>
+  </div>
+  <ng-template #msg>
+    <div>
+      Thanks for purchasing from our Store {{clientName}}
+    </div>
+  </ng-template>
+  <!-- Table Content -->
+  <ng-template #table>
+    <table class="table table-hover align-middle">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Name</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Price</th>
+          <th scope="col">Img</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of productList">
+          <th scope="row">{{item.ID}}</th>
+          <td>{{item.Name}}</td>
+          <td>{{item.Quantity}}</td>
+          <td>{{item.price}}</td>
+          <td><img [src]="item.Img" style="width:20rem;" class="card-img-top rounded float-start" alt="..."></td>
+        </tr>
+      </tbody>
+    </table>
+  </ng-template>
+  <!-- End table -->
 </div>
