@@ -1,3 +1,4 @@
+import { ProductServiceService } from './../services/product-service.service';
 import { Component, OnInit } from '@angular/core';
 import { DiscountOffers } from '../Shared Classes and types/enums';
 import { ICategory, Iproduct } from '../Shared Classes and types/Interface';
@@ -15,47 +16,48 @@ export class ProductsComponent implements OnInit {
   clientName: string;
   categoryList: ICategory[];
   isPurshased: boolean;
-  constructor() {
+  constructor(private productService:ProductServiceService) {
     this.Discount = DiscountOffers.fifteenprecent;
     this.storeName = 'Arket';
     this.storeLogo = '../../assets/Photos/Trollie -1.jpg';
-    this.productList = [
-      {
-        ID: 1,
-        Name: 'Product1',
-        Quantity: 3,
-        price: 300,
-        Img: '../../assets/Photos/Ahlan w sahln - 1.jpg',
-      },
-      {
-        ID: 2,
-        Name: 'Product2',
-        Quantity: 5,
-        price: 250,
-        Img: '../../assets/Photos/Untitled-12.jpg',
-      },
-      {
-        ID: 3,
-        Name: 'Product3',
-        Quantity: 6,
-        price: 350,
-        Img: '../../assets/Photos/Untitled-4.jpg',
-      },
-      {
-        ID: 4,
-        Name: 'Product4',
-        Quantity: 6,
-        price: 350,
-        Img: '../../assets/Photos/Untitled-6.jpg',
-      },
-      {
-        ID: 5,
-        Name: 'Product5',
-        Quantity: 6,
-        price: 250,
-        Img: '../../assets/Photos/Trollie - 01.jpg',
-      },
-    ];
+    this.productList = this.renderValue(); 
+      // [
+    //   {
+    //     ID: 1,
+    //     Name: 'Product1',
+    //     Quantity: 3,
+    //     price: 300,
+    //     Img: '../../assets/Photos/Ahlan w sahln - 1.jpg',
+    //   },
+    //   {
+    //     ID: 2,
+    //     Name: 'Product2',
+    //     Quantity: 5,
+    //     price: 250,
+    //     Img: '../../assets/Photos/Untitled-12.jpg',
+    //   },
+    //   {
+    //     ID: 3,
+    //     Name: 'Product3',
+    //     Quantity: 6,
+    //     price: 350,
+    //     Img: '../../assets/Photos/Untitled-4.jpg',
+    //   },
+    //   {
+    //     ID: 4,
+    //     Name: 'Product4',
+    //     Quantity: 6,
+    //     price: 350,
+    //     Img: '../../assets/Photos/Untitled-6.jpg',
+    //   },
+    //   {
+    //     ID: 5,
+    //     Name: 'Product5',
+    //     Quantity: 6,
+    //     price: 250,
+    //     Img: '../../assets/Photos/Trollie - 01.jpg',
+    //   },
+    // ];
     this.clientName = 'Gamal';
     this.isPurshased = false;
     this.categoryList = [
@@ -69,5 +71,8 @@ export class ProductsComponent implements OnInit {
     if (this.isPurshased) {
       this.isPurshased = false;
     } else this.isPurshased = true;
+  }
+  renderValue() {
+     return this.productService.getAllProducts() 
   }
 }
