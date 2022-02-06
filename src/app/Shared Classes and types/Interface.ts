@@ -9,3 +9,13 @@ export interface ICategory{
     ID:number;
     Name:string;
 }
+export interface Iusers{
+    name: string;
+    userName: string;
+    email: string;
+}
+export interface Iposts{
+    id: number,
+    title: string,
+    body:string
+}

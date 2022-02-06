@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -8,6 +8,12 @@ import { FooterComponent } from './footer/footer.component';
 import { ProductsComponent } from './products/products.component';
 import { FormsModule } from '@angular/forms';
 import { FilterPipe } from './filter.pipe';
+import { HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './home/home.component';
+import { RouterModule, Routes } from '@angular/router';
+import { UsersComponent } from './users/users.component';
+import { PostsComponent } from './posts/posts.component';
+
 
 @NgModule({
   declarations: [
@@ -16,8 +22,16 @@ import { FilterPipe } from './filter.pipe';
     FooterComponent,
     ProductsComponent,
     FilterPipe,
+    HomeComponent,
+    UsersComponent,
+    PostsComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
