@@ -1,10 +1,11 @@
 <div class="row">
     <div class="card mb-3" style="width: 18rem;" *ngFor="let posts of postsList">
         <ul class="list-group list-group-flush">
-            <li class="list-group-item">{{posts.id}}</li>
-            <li class="list-group-item">{{posts.title}}</li>
-            <li class="list-group-item">{{posts.body}}</li>
+            <h2 class="list-group-item">{{posts.id}}</h2>
+            <h3 class="list-group-item">{{posts.title}}</h3>
+            <p class="list-group-item">{{posts.body}}</p>
         </ul>
+        <button (click)="goToPost(posts)" class="card-link">View Post</button>
     </div>
     <br>
     

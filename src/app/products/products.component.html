@@ -31,7 +31,12 @@
 
   <!-- End Card -->
   <div>
-    <button type="button" class="btn btn-success col-2 mb-3" (click)="onclick()">Buy</button>
+    <button type="button" class="btn btn-success col-2 ms-3 mb-3" (click)="onclick()">Buy</button>
+    <button type="button" class="btn btn-success col-2 ms-3 mb-3" (click)="discountProducts()">Show With Discount</button>
+    <button type="button" class="btn btn-success col-3 ms-3 mb-3" (click)="noDiscountProducts()">Show Without Discount</button>
+    <button type="button" class="btn btn-success col-3 ms-3 mb-3" (click)="renderValue()">Show All Products
+      Discount</button>
+
     <div *ngIf="isPurshased; then msg;else table"></div>
   </div>
   <ng-template #msg>

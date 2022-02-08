@@ -13,6 +13,9 @@ import { HomeComponent } from './home/home.component';
 import { RouterModule, Routes } from '@angular/router';
 import { UsersComponent } from './users/users.component';
 import { PostsComponent } from './posts/posts.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { PostCommentsComponent } from './post-comments/post-comments.component';
 
 
 @NgModule({
@@ -25,6 +28,9 @@ import { PostsComponent } from './posts/posts.component';
     HomeComponent,
     UsersComponent,
     PostsComponent,
+    LoginComponent,
+    RegisterComponent,
+    PostCommentsComponent,
   ],
   imports: [
     BrowserModule,

@@ -16,12 +16,12 @@ export class ProductsComponent implements OnInit {
   clientName: string;
   categoryList: ICategory[];
   isPurshased: boolean;
-  constructor(private productService:ProductServiceService) {
+  constructor(private productService: ProductServiceService) {
     this.Discount = DiscountOffers.fifteenprecent;
     this.storeName = 'Arket';
     this.storeLogo = '../../assets/Photos/Trollie -1.jpg';
-    this.productList = this.renderValue(); 
-      // [
+    this.productList =this.renderValue();
+    // [
     //   {
     //     ID: 1,
     //     Name: 'Product1',
@@ -73,6 +73,27 @@ export class ProductsComponent implements OnInit {
     } else this.isPurshased = true;
   }
   renderValue() {
-     return this.productService.getAllProducts() 
+    this.productList = this.productService.getAllProducts();
+    return this.productList;
+  }
+  discountProducts() {
+    let allProds = this.productService.getAllProducts();
+    let discountProds = [];
+    for (let item of allProds) {
+      if (item.Discount != 'No Discount') {
+        discountProds.push(item);
+      }
+    }
+    this.productList = discountProds;
+  }
+  noDiscountProducts() {
+    let allProds = this.productService.getAllProducts();
+    let noDiscountProds = [];
+    for (let item of allProds) {
+      if (item.Discount == 'No Discount') {
+        noDiscountProds.push(item);
+      }
+    }
+    this.productList = noDiscountProds;
   }
 }

@@ -1,9 +1,12 @@
+import { DiscountOffers } from "./enums";
+
 export interface Iproduct {
-    ID: number;
-    Name: string;
-    Quantity: number;
-    price: number;
-    Img: string;
+  ID: number;
+  Name: string;
+  Quantity: number;
+  price: number;
+  Img: string;
+  Discount: DiscountOffers;
 }
 export interface ICategory{
     ID:number;
