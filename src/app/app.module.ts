@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ProductsComponent } from './products/products.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FilterPipe } from './filter.pipe';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
@@ -16,7 +16,7 @@ import { PostsComponent } from './posts/posts.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { PostCommentsComponent } from './post-comments/post-comments.component';
-
+import { RegisterReactiveComponent } from './register-reactive/register-reactive.component';
 
 @NgModule({
   declarations: [
@@ -31,12 +31,14 @@ import { PostCommentsComponent } from './post-comments/post-comments.component';
     LoginComponent,
     RegisterComponent,
     PostCommentsComponent,
+    RegisterReactiveComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

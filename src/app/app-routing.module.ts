@@ -7,6 +7,7 @@ import { PostsComponent } from './posts/posts.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { PostCommentsComponent } from './post-comments/post-comments.component';
+import { RegisterReactiveComponent } from './register-reactive/register-reactive.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'postsDetail/:id', component: PostCommentsComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'registerReactive', component: RegisterReactiveComponent },
 
   // { path: '**', component: PageNotFoundComponent },
 ];
